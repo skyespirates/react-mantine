@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 // pages
 import Home from "./pages/Home";
 import Todos from "./pages/Todos";
+import Animes from "./pages/Animes";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
         path: "todos",
         element: <Todos />,
       },
+      {
+        path: "animes",
+        element: <Animes />,
+      },
     ],
   },
 ]);
@@ -31,5 +36,9 @@ export const links = [
   {
     to: "/todos",
     title: "todos",
+  },
+  {
+    to: "/animes",
+    title: "animes",
   },
 ];
