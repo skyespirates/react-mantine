@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import api from "../utils/api";
+import { animeApi } from "../utils/api";
 
 export const fetchAnimeByQuery = createAsyncThunk(
   "anime/fetchAnimeByQuery",
   async (q) => {
-    const { data } = await api(`/anime`, {
+    const { data } = await animeApi(`/anime`, {
       params: {
+        sfw: true,
         q,
       },
     });
@@ -14,7 +15,7 @@ export const fetchAnimeByQuery = createAsyncThunk(
 );
 
 const initialState = {
-  data: [1, 2, 3],
+  data: [],
   status: "idle",
   error: null,
 };

@@ -1,14 +1,40 @@
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button, TextInput } from "@mantine/core";
+import {
+  Container,
+  Modal,
+  Button,
+  TextInput,
+  Space,
+  List,
+} from "@mantine/core";
+
+import { useSelector, useDispatch } from "react-redux";
+import { addTodo, removeTodo } from "../slices/todoSlice";
 
 import { useState } from "react";
 
 const Todos = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const [todo, setTodo] = useState("");
+
+  const todos = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
+
+  const handleAddTodo = () => {
+    if (todo) {
+      dispatch(addTodo(todo));
+      setTodo("");
+      close();
+    }
+  };
+
+  const handleRemoveTodo = (id) => {
+    dispatch(removeTodo(id));
+  };
+
   return (
-    <>
-      <Modal opened={opened} onClose={close} title="Add Todo Item" centered>
+    <Container>
+      <Modal opened={opened} onClose={close} title="Add Todo Item">
         <TextInput
           label="Add Todo"
           placeholder="jogging"
@@ -22,19 +48,26 @@ const Todos = () => {
               margin: "16px 0",
             },
           }}
-          onClick={() => {
-            if (todo) {
-              console.log(todo);
-              setTodo("");
-            }
-          }}
+          onClick={handleAddTodo}
         >
           Add Todo
         </Button>
       </Modal>
 
       <Button onClick={open}>Add Todo</Button>
-    </>
+      <Space h="md" />
+      <List>
+        {todos.map((todo) => (
+          <List.Item
+            key={todo.id}
+            style={{ cursor: "pointer" }}
+            onClick={() => handleRemoveTodo(todo.id)}
+          >
+            {todo.title}
+          </List.Item>
+        ))}
+      </List>
+    </Container>
   );
 };
 

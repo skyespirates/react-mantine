@@ -6,24 +6,24 @@ import {
   Pagination,
   Loader,
 } from "@mantine/core";
-import CardItem from "../components/CardItem";
+import GameCard from "../components/GameCard";
 import AlertItem from "../components/AlertItem";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { fetchAnimeByQuery } from "../slices/animeSlice";
+import { fetchGame } from "../slices/gameSlice";
 
 const SIZE = 8;
 
-const Animes = () => {
+const Games = () => {
   const [query, setQuery] = useState("");
-  const state = useSelector((state) => state.anime);
+  const state = useSelector((state) => state.game);
   state;
   const dispatch = useDispatch();
   const handleClick = () => {
     if (query) {
-      dispatch(fetchAnimeByQuery(query));
+      dispatch(fetchGame(query));
     }
   };
 
@@ -67,15 +67,11 @@ const Animes = () => {
 
       {state.status === "succeeded" && (
         <>
-          {
-            // <p>Anime</p>
-
-            records.map((item) => (
-              <Grid.Col key={item.title} span={{ base: 12, md: 6, lg: 3 }}>
-                <CardItem anime={item} />
-              </Grid.Col>
-            ))
-          }
+          {records.map((item) => (
+            <Grid.Col key={item.id} span={{ base: 12, md: 6, lg: 3 }}>
+              <GameCard game={item} />
+            </Grid.Col>
+          ))}
           <Grid.Col
             span={12}
             style={{ display: "flex", justifyContent: "center" }}
@@ -92,4 +88,4 @@ const Animes = () => {
   );
 };
 
-export default Animes;
+export default Games;

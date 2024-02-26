@@ -1,0 +1,10 @@
+.header {
+  z-index: 15;
+  font-style: italic;
+  color: var(--mantine-color-red-6);
+  background-color: #000;
+}
+.header tr {
+  border-bottom: 1px solid var(--mantine-color-orange-6);
+  background-color: #000;
+}

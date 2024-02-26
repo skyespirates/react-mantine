@@ -11,6 +11,11 @@ import { router } from "./routes.jsx";
 import { Provider } from "react-redux";
 import store from "./utils/store.js";
 
+import "@mantine/carousel/styles.css";
+import "@mantine/core/styles.layer.css";
+import "mantine-datatable/styles.layer.css";
+import "./styles/layout.css";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
