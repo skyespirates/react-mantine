@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero ea modi deleniti magnam quae eos porro deserunt ad fugit!"
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero ea modi deleniti magnam quae eos porro deserunt ad fugit!"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group } from "@mantine/core";
+import { AppShell, Burger, Group, Text, Space } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -6,7 +6,6 @@ import { links } from "../routes";
 
 const Layout = () => {
   const [opened, { toggle }] = useDisclosure();
-
   return (
     <AppShell
       header={{ height: 60 }}
@@ -20,9 +19,14 @@ const Layout = () => {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        Navbar
+        <Text fw={500}>Pages</Text>
+        <Space h="sm" />
         {links.map((link, i) => (
-          <NavLink key={i} to={link.to}>
+          <NavLink
+            key={i}
+            to={link.to}
+            className={({ isActive }) => (isActive ? "active" : "unactive")}
+          >
             {link.title}
           </NavLink>
         ))}

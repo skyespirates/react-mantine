@@ -1,0 +1,21 @@
+.active,
+.unactive {
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 8px 16px;
+}
+
+.active {
+  font-weight: 500;
+  display: inline-block;
+  background-color: #1c7ed6;
+  color: #fff;
+  border-radius: 5px;
+}
+.active:hover {
+  background-color: #1864ab;
+}
+
+.unactive {
+  color: #fff;
+}

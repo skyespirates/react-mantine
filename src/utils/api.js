@@ -13,3 +13,10 @@ const gameConfig = {
 };
 
 export const gameApi = axios.create(gameConfig);
+
+const movieConfig = {
+  baseURL: "https://api.themoviedb.org/3",
+  timeout: 5000,
+};
+
+export const movieApi = axios.create(movieConfig);

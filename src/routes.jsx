@@ -5,9 +5,11 @@ import Layout from "./components/Layout";
 // pages
 import Home from "./pages/Home";
 import Todos from "./pages/Todos";
-import Animes from "./pages/Animes";
 import Table from "./pages/Table";
+import Animes from "./pages/Animes";
 import Games from "./pages/Games";
+import Movies from "./pages/Movies";
+import Posts from "./pages/Posts";
 
 export const router = createBrowserRouter([
   {
@@ -23,16 +25,24 @@ export const router = createBrowserRouter([
         element: <Todos />,
       },
       {
-        path: "animes",
-        element: <Animes />,
-      },
-      {
         path: "table",
         element: <Table />,
       },
       {
+        path: "animes",
+        element: <Animes />,
+      },
+      {
         path: "games",
         element: <Games />,
+      },
+      {
+        path: "movies",
+        element: <Movies />,
+      },
+      {
+        path: "posts",
+        element: <Posts />,
       },
     ],
   },
@@ -48,15 +58,23 @@ export const links = [
     title: "todos",
   },
   {
-    to: "/animes",
-    title: "animes",
-  },
-  {
     to: "/table",
     title: "table",
   },
   {
+    to: "/animes",
+    title: "animes",
+  },
+  {
     to: "/games",
     title: "games",
+  },
+  {
+    to: "/movies",
+    title: "movies",
+  },
+  {
+    to: "/posts",
+    title: "posts",
   },
 ];
